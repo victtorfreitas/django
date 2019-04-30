@@ -26,7 +26,8 @@ Perfil
 					<td>{{perfil.nome_empresa}}</td>
 					<td>
 					<a class="btn btn-outline-primary" href="{% url 'index'%}">Voltar</a>
-					<a class="btn btn-outline-primary" href="{% url 'convidar' perfil.id %}">Convidar</a></td>
+					
+					<a class="btn btn-outline-primary" href="{% url 'convidar' perfil.id %}" aria-disabled="true">Convidar</a></td>
 				</tr>
 			</tbody>
 		</table>

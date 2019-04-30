@@ -32,9 +32,46 @@ Index
 	{% if total_convites %}
 	<div class="card">
 		<div class="card-header">
-			Convites
+			Você tem {{total_convites}} Convite{{total_convites|pluralize}}
 		</div>
+		<div class="card-body">
+			<ul class="list-group list-group-flush">
+				{% for convite in perfil_logado.convites_recebidos.all %}
+					<li class="list-group-item">
+						<strong onclick="javascript:location.href='{% url 'exibir' convite.solicitante.id%}'">{{convite.solicitante.nome}}</strong>
+						<a class="btn btn-outline-primary float-right" href="{% url 'aceitar' convite.id %}">Aceitar</a></td>
+					</li>
+				{% endfor %}
+			</ul>
 
+		</div>
+	</div>
+	{% else %}
+	<div class="card espaco">
+		<div class="card-body ">
+			<p>Nenhum convite recebido :(</p>
+		</div>
+	</div>
+	{% endif %}
+	{% endwith %}
+
+	<!-- Amigos -->
+	{% with total_amigos=perfil_logado.amigos.count %}
+	{% if total_amigos %}
+	<div class="card espaco">
+		<div class="card-header">
+			Você tem {{total_amigos}} Amigo{{total_amigos|pluralize}}
+		</div>
+		<div class="card-body">
+			<ul class="list-group list-group-flush">
+				{% for amigo in perfil_logado.amigos.all %}
+					<li class="list-group-item">
+						<strong onclick="javascript:location.href='{% url 'exibir' amigo.id%}'">{{amigo.nome}}</strong>
+					</li>
+				{% endfor %}
+			</ul>
+
+		</div>
 	</div>
 	{% else %}
 	<div class="card espaco">
