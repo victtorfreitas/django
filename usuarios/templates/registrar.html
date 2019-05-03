@@ -1,0 +1,31 @@
+{% extends "base_usuario.html" %}
+{% block body %}
+<div class="container">
+    <div class="col-sm-4 mx-auto">
+        <h3 class="text-center espaco">Criar usuário</h3>
+        <form action="{% url 'registrar' %}">
+            {% csrf_token %}
+        <div class="form-group">
+            <input id="id_email" type="text" name="email" class="form-control" placeholder="Email *" autofocus autocomplete="email" required>
+        </div>
+        <div class="form-group">
+            <input id="id_nome" type="text" class="form-control" placeholder="Nome" autocomplete="name" required >
+        </div>
+        <div class="form-group">
+            <input id="id_senha" type="password" class="form-control" placeholder="Senha" required>
+        </div>
+        <hr />
+        <div class="form-group">
+            <input id="id_telefone" type="tel" class="form-control" placeholder="Telefone" autocomplete="telefone" required >
+        </div>
+        <div class="form-group">
+            <input id="id_nome_empresa" type="text" class="form-control" placeholder="Empresa" required >
+        </div>
+        <hr/>
+        <div class="form-group">
+            <button class="btn btn-lg btn-primary btn-block" type="submit" value="Login">Registrar</button>
+        </div>
+    </form>
+    </div>
+</div>
+{% endblock body %}
